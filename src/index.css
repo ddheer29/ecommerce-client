@@ -142,3 +142,8 @@
   color: white;
   padding: 20px 0px;
 }
+
+.product-link {
+  text-decoration: none !important;
+  color: black !important;
+}
