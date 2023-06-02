@@ -20,12 +20,14 @@ import Profile from './Pages/user/Profile'
 import Products from './Pages/admin/Products'
 import UpdateProduct from './Pages/admin/UpdateProduct'
 import Search from './Pages/Search'
+import ProductDetails from './Pages/ProductDetails'
 
 const App = () => {
     return (
         <>
             <Routes>
                 <Route path='/' element={<HomePage />} />
+                <Route path='/product/:slug' element={<ProductDetails />} />
                 <Route path='/search' element={<Search />} />
                 <Route path='/dashboard' element={<PrivateRoute />} >
                     <Route path='user/orders' element={<Orders />} />
