@@ -35,7 +35,7 @@ const ProductDetails = () => {
 
     return (
         <Layout>
-            <div className="row container m-3">
+            <div className="row container m-3" style={{height: "100%"}}>
                 <div className="col-md-5">
                     <img
                         src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}

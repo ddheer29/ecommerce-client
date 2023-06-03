@@ -21,6 +21,8 @@ import Products from './Pages/admin/Products'
 import UpdateProduct from './Pages/admin/UpdateProduct'
 import Search from './Pages/Search'
 import ProductDetails from './Pages/ProductDetails'
+import Categories from './Pages/Categories'
+import CategoryProduct from './Pages/CategoryProduct'
 
 const App = () => {
     return (
@@ -28,6 +30,8 @@ const App = () => {
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/product/:slug' element={<ProductDetails />} />
+                <Route path='/categories' element={<Categories />} />
+                <Route path='/category/:slug' element={<CategoryProduct />} />
                 <Route path='/search' element={<Search />} />
                 <Route path='/dashboard' element={<PrivateRoute />} >
                     <Route path='user/orders' element={<Orders />} />
