@@ -4,8 +4,12 @@ import { useAuth } from '../context/auth';
 import toast from 'react-hot-toast';
 import SearchInput from './Form/SearchInput';
 import useCategory from '../hooks/useCategory';
+import { useCart } from '../context/Cart';
+import { Badge } from 'antd';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 const Header = () => {
+    const [cart] = useCart();
     const [auth, setAuth] = useAuth();
     const categories = useCategory();
     const handleLogout = () => {
@@ -19,7 +23,7 @@ const Header = () => {
     }
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-body-tertiary">
+            <nav className="navbar navbar-expand-lg bg-body-tertiary mt-2">
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon" />
@@ -112,9 +116,11 @@ const Header = () => {
                                 )
                             }
                             <li className="nav-item">
-                                <NavLink to='/cart' className="nav-link" href="#">
-                                    Cart(0)
-                                </NavLink>
+                                <Badge count={cart?.length}>
+                                    <NavLink to='/cart' className="nav-link" href="#">
+                                        <AiOutlineShoppingCart size={26} />
+                                    </NavLink>
+                                </Badge>
                             </li>
                         </ul>
                     </div>
