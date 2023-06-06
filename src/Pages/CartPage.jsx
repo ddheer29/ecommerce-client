@@ -82,6 +82,43 @@ const CartPage = () => {
                         <p>Total | Checkout | Payment</p>
                         <hr />
                         <h4>Total: ₹{totalPrice()}</h4>
+                        {
+                            auth?.user?.address ? (
+                                <>
+                                    <div className="mb-3">
+                                        <h6>Delivery At: {auth?.user?.address}</h6>
+                                        <button
+                                            className="btn btn-outline-warning"
+                                            onClick={() => navigate('/dashboard/user/profile')}
+                                        >
+                                            Update Address
+                                        </button>
+                                    </div>
+                                </>
+                            ) : (
+                                <div className="mb-3">
+                                    {
+                                        auth?.token ? (
+                                            <button
+                                                className="btn btn-outline-warning"
+                                                onClick={() => navigate('/dashboard/user/profile')}
+                                            >
+                                                Update Address
+                                            </button>
+                                        ) : (
+                                            <button
+                                                className="btn btn-outline-primary"
+                                                onClick={() => navigate('/login', {
+                                                    state: '/cart', // after login it will redirect to cart
+                                                })}
+                                            >
+                                                Login to Checkout
+                                            </button>
+                                        )
+                                    }
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
             </div>
